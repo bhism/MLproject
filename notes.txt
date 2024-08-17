@@ -1,0 +1,101 @@
+
+
+create virtual env 
+
+    python -m venv venv
+    venv\Scripts\activate
+
+git pull
+
+src folder : entire development will be done in this folder.
+
+__init__.py : whenever the setup.py file runs (find_package() function) it search for __init__ file so that that folder can be consider as a package and build it , so that it can be imported just like numpy , pandas ,etc.
+
+pip install -r requirements.txt
+
+create repo (readme , gitignore , lisence)
+clone the git 
+create setup.py ,  requirements.txt , src folder(__init__.py)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mongo databsae : 
+https://cloud.mongodb.com/v2/66b9935dc25ef545933d2132#/clusters
+
+https://cloud.mongodb.com/v2/66b9935dc25ef545933d2132#/overview?automateSecurity=true&connectCluster=Cluster0 
+mongo_db = cp277478
+Password : p7tfcJPvnvVZEXDr
+
+python -m pip install "pymongo[srv]"==3.6
+
+mongodb+srv://cp277478:p7tfcJPvnvVZEXDr@cluster0.au1q7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+>>>>>>>>>>>sample code>>>>>>>>>>>>>>>>>>>
+
+from pymongo.mongo_client import MongoClient
+
+uri = "mongodb+srv://cp277478:p7tfcJPvnvVZEXDr@cluster0.au1q7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+# Create a new client and connect to the server
+client = MongoClient(uri)
+
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+day 5 video
+
+data injestion 
+data validation 
+data transfotmation
+model trainig 
+mdel evalutaion
+model pusher
+
+
+**data_injestion file will create 2 file test.csv and train.csv which are input for data_validation than its output will send to model trainer and than model evalutaion and than model pusher
+
+**use the below code if you recieve the connection timeout.  
+
+import certifi
+ca = certifi.where()
+
+
+** artifact folder :  is folder where we store our output of something lets say you have done some changes on a small dataset and want to store that dataset into csv , so you can use the artifact folder. 
+
+
+created the data_access folder to edit the data from doctionary to dataframe.
+
+workflow :
+
+1) constants : all the constant variable which are used multiple time at multiple places like file path , file name , database name , some urls etc. so these type of variables are store in the constant file.
+
+2) entity
+    > artifact entity :
+    > config entity :   
+
+3) component 
+    > data_injestion coding
+
+4) pipeline 
+    > training_pipeline coding 
