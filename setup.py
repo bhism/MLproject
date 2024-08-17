@@ -13,10 +13,10 @@ def get_requirements(requirements_file_path):
 
 
 setup(
-    name= "mlproject",
-    version= "0.0.1",
-    author = "chetan",
-    email= "cp@gmail.com",
-    package = find_packages(),
-    install_requires = get_requirements('requirements.txt')
+    name='mlproject',
+    version='0.0.1',
+    author='chetan',
+    author_email='chetan@gmail.com',
+    packages=find_packages(),
+    install_requires=get_requirements('requirements.txt')
 )
