@@ -11,7 +11,7 @@ from dataclasses import dataclass
 @dataclass
 class DataIngestionConfig:
     # Generate a timestamp to create a unique versioned folder for each run
-    timestamp: str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    timestamp: str = datetime.now().strftime("%Y_%m_%d_%H_hr_%M_min")
     versioned_folder: str = os.path.join('artifacts', f"data_version_{timestamp}")
     
     # Create paths for train, test, and raw data files within the versioned folder
