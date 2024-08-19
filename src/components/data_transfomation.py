@@ -1,5 +1,6 @@
 import sys
 from dataclasses import dataclass
+from datetime import datetime
 
 import numpy as np 
 import pandas as pd
@@ -11,7 +12,6 @@ from sklearn.preprocessing import OneHotEncoder,StandardScaler
 from src.exception import CustomException
 from src.logger import logging
 import os
-from datetime import datetime
 
 from src.utils import save_object
 
@@ -20,6 +20,7 @@ class DataTransformationConfig:
     timestamp: str = datetime.now().strftime("%Y_%m_%d_%H_hr_%M_min")
     versioned_folder: str = os.path.join('artifacts', f"preprocessor_{timestamp}")
     preprocessor_obj_file_path=os.path.join(versioned_folder,"preprocessor.pkl")
+
 
 class DataTransformation:
     def __init__(self):

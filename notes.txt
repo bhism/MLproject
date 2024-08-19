@@ -22,7 +22,7 @@ create setup.py ,  requirements.txt , src folder(__init__.py)
 
 2:16:00
 
-
+3:00:00 : train
 
 
 
