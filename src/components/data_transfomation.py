@@ -1,6 +1,5 @@
 import sys
 from dataclasses import dataclass
-from datetime import datetime
 
 import numpy as np 
 import pandas as pd
@@ -17,10 +16,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    timestamp: str = datetime.now().strftime("%Y_%m_%d_%H_hr_%M_min")
-    versioned_folder: str = os.path.join('artifacts', f"preprocessor_{timestamp}")
-    preprocessor_obj_file_path=os.path.join(versioned_folder,"preprocessor.pkl")
-
+    preprocessor_obj_file_path=os.path.join('artifacts',"preprocessor.pkl")
 
 class DataTransformation:
     def __init__(self):

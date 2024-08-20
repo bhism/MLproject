@@ -1,10 +1,13 @@
 import os
 import sys
 from dataclasses import dataclass
-from datetime import datetime
 
 from catboost import CatBoostRegressor
-from sklearn.ensemble import AdaBoostRegressor, GradientBoostingRegressor,RandomForestRegressor
+from sklearn.ensemble import (
+    AdaBoostRegressor,
+    GradientBoostingRegressor,
+    RandomForestRegressor,
+)
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
@@ -16,19 +19,9 @@ from src.logger import logging
 
 from src.utils import save_object,evaluate_models
 
-# @dataclass
-# class ModelTrainerConfig:
-#     trained_model_file_path=os.path.join("artifacts","model.pkl")
-
-
-
 @dataclass
 class ModelTrainerConfig:
-    # Generate a timestamp to create a unique versioned folder for each run
-    timestamp: str = datetime.now().strftime("%Y_%m_%d_%H_hr_%M_min")
-    versioned_folder: str = os.path.join('artifacts', f"model_{timestamp}")
-    trained_model_file_path=os.path.join(versioned_folder,"model.pkl")
-
+    trained_model_file_path=os.path.join("artifacts","model.pkl")
 
 class ModelTrainer:
     def __init__(self):
@@ -117,6 +110,10 @@ class ModelTrainer:
 
             r2_square = r2_score(y_test, predicted)
             return r2_square
-  
+            
+
+
+
+            
         except Exception as e:
             raise CustomException(e,sys)

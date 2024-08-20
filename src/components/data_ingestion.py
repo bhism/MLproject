@@ -3,7 +3,6 @@ import sys
 from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
-from datetime import datetime
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
@@ -15,14 +14,9 @@ from src.components.model_trainer import ModelTrainerConfig
 from src.components.model_trainer import ModelTrainer
 @dataclass
 class DataIngestionConfig:
-    # Generate a timestamp to create a unique versioned folder for each run
-    timestamp: str = datetime.now().strftime("%Y_%m_%d_%H_hr_%M_min")
-    versioned_folder: str = os.path.join('artifacts', f"data_version_{timestamp}")
-    
-    # Create paths for train, test, and raw data files within the versioned folder
-    train_data_path: str = os.path.join(versioned_folder, "train.csv")
-    test_data_path: str = os.path.join(versioned_folder, "test.csv")
-    raw_data_path: str = os.path.join(versioned_folder, "data.csv")
+    train_data_path: str=os.path.join('artifacts',"train.csv")
+    test_data_path: str=os.path.join('artifacts',"test.csv")
+    raw_data_path: str=os.path.join('artifacts',"data.csv")
 
 class DataIngestion:
     def __init__(self):
